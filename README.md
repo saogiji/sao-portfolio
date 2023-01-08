@@ -30,19 +30,36 @@ The web page is divided into sections that help organize my story for easy compr
 The process used to design and deploy this simple webpage can be broken down into five simple steps;
 
 - ### Layout
-  I used HTML to create the layout, everything was jammed together when I was done and it was time to add some styles to it. :wink:
+  I used HTML to create the layout; when I was finished, everything was smashed together and it was time to add some styles. :wink:
 - ### styles
+  I styled the page with CSS and added some cool colors before making it more interactive.
 - ### Interactivity
+  I used JavaScript to toggle the page from light to dark mode, as well as create a cool hand emoji at the bottom of the page to navigate right back to the top.
 - ### Inspection
+  Before committing to github, I wanted to sneak a peek:smiley: the inspect tool of chrome was just the right tool for that, allowing me to switch layouts and inspect how my page would look on mobile devices as well as personal computers.
 - ### Deployment
+  When it came time to deploy, I had a few options but ultimately chose [vercel.](https://vercel.com/). It is simple to use, as I have used it in previous projects during my [freeCodeCamp](https://www.freecodecamp.org/learn) course.
 
 ## Built with
 
+- ### [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- ### [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- ### [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
 ## My lessons
+
+saogiji 1:1, RSE: Shew my thy knowledge without thy works, and I will shew thee my works by my knowledge.
+Oh RSE is Revised Standard Edition:rofl:
 
 ## Continued development
 
+I'm going to concentrate on JavaScript now because my interest has shifted to building web3 products and I want to know everything there is to know about web3. My next project could be a smart contract.
+
 ## Useful resources
+
+- Learn Web design - [FreeCodeCamp](https://www.freecodecamp.org/learn)
+- Learn Product Management - [EntryLevel.](https://app.entrylevel.net/)
+- Deploy your projects - [vercel.](https://vercel.com/)
 
 ## Author
 
@@ -51,3 +68,5 @@ The process used to design and deploy this simple webpage can be broken down int
 - Twitter - [@ogijisimon](https://twitter.com/OgijiSimon)
 
 ## Acknowledgments
+
+I'd like to thank the [FreeCodeCamp](https://www.freecodecamp.org/learn) team for the knowledge that inspired me to complete this simple project, as well as the [EntryLevel.](https://app.entrylevel.net/) team for assisting me in treating this project as a product and seeing it through to completion.
