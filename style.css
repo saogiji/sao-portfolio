@@ -373,8 +373,8 @@ section {
     font-family: Inconsolata,monospace;
     margin-top: 5px;
     color: #131417;
-    margin-left: 40%;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .status_light {
@@ -554,7 +554,7 @@ section .skills{
 }
 
 .featured-projects .project_pic img {
-    width: 100%;
+    width: 50%;
     max-width: 100%;
     vertical-align: bottom;
 }
@@ -701,25 +701,25 @@ body #top-button img, html #top-button img {
     scroll-behavior: smooth;
 }
 
-.other-projects .project {
+.all-contacts .project {
     max-width: 600px;
     margin-bottom: 50px;
 }
 
-.other-projects .project_name {
+.all-contacts .project_name {
     margin-bottom: 10px;
 }
 
-.other-projects .project p {
+.all-contacts .project p {
     font-size: .9rem;
     margin-bottom: 20px;
 }
 
-.other-projects .project_used_item:first-of-type {
+.all-contacts .project_used_item:first-of-type {
     margin-left: 0;
 }
 
-.other-projects .project_used_item {
+.all-contacts .project_used_item {
     display: inline-block;
     margin: 3px 3px 3px 0;
     font-family: Inconsolata,monospace;
