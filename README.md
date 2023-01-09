@@ -22,7 +22,7 @@ The web page is divided into sections that help organize my story for easy compr
 
   I created a couple of other cool designs during my freeCodeCamp course, but my interest is in Product Management, and I will be back soon to update the projects section with more amazing projects (both hypothetical and real) as I journey through my transition from Computer Engineer to Product Manager with [EntryLevel.](https://app.entrylevel.net/)
 
-- ### Contacts
+- ### Contacts & Footer
   I want to connect with people who share my interests, so the contact section and footer provide various ways to contact me.
 
 ## My process
@@ -38,7 +38,7 @@ The process used to design and deploy this simple webpage can be broken down int
 - ### Inspection
   Before committing to github, I wanted to sneak a peek:smiley: the inspect tool of chrome was just the right tool for that, allowing me to switch layouts and inspect how my page would look on mobile devices as well as personal computers.
 - ### Deployment
-  When it came time to deploy, I had a few options but ultimately chose [vercel.](https://vercel.com/). It is simple to use, as I have used it in previous projects during my [freeCodeCamp](https://www.freecodecamp.org/learn) course.
+  When it came time to deploy, I had a few options but ultimately chose [vercel.](https://vercel.com/) It is simple to use, as I have used it in previous projects during my [freeCodeCamp](https://www.freecodecamp.org/learn) course.
 
 ## Built with
 
@@ -49,7 +49,7 @@ The process used to design and deploy this simple webpage can be broken down int
 ## My lessons
 
 saogiji 1:1, RSE: Shew my thy knowledge without thy works, and I will shew thee my works by my knowledge.
-Oh RSE is Revised Standard Edition:rofl:
+NB: RSE is Revised Standard Edition:rofl:
 
 ## Continued development
 
