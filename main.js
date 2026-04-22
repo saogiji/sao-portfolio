@@ -1,48 +1,58 @@
-// On Click hand emoji will take you to the top of the page
-document.getElementById("top-button").addEventListener("click", function () {
-  window.scrollTo(0, 0);
-});
+document.addEventListener("DOMContentLoaded", () => {
+  const topButton = document.getElementById("top-button");
+  const themeSwitch = document.getElementById("switch1");
 
-$(window).scroll(function () {
-  var threshold = 208; // number of pixels before bottom of page that you want to start fading
-  var op =
-    ($(document).height() - $(window).height() - $(window).scrollTop()) /
-    threshold;
-  if (op <= 13) {
-    $("#top-button").show();
-  } else {
-    $("#top-button").hide();
+  // 1. Hide Top Button initially
+  if (topButton) topButton.style.display = "none";
+
+  // 2. On Click, smooth scroll to the top of the page
+  if (topButton) {
+    topButton.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" }); // 'smooth' makes it look much nicer than an instant jump
+    });
   }
-});
 
-// Toggle between Day and Night Mode
-$("#switch1").on("click", function () {
-  $("body").toggleClass("night");
-});
+  // 3. Show/Hide Top Button based on scroll
+  window.addEventListener("scroll", () => {
+    const threshold = 208;
+    const distanceToBottom = document.documentElement.scrollHeight - window.innerHeight - window.scrollY;
+    const op = distanceToBottom / threshold;
+    
+    if (topButton) {
+      if (op <= 13) {
+        topButton.style.display = "block";
+      } else {
+        topButton.style.display = "none";
+      }
+    }
+  });
 
-// Apply dark theme if user visits after 7pm
-$(document).ready(function () {
-  var date = new Date();
-  var current_time = date.getHours();
-  if (current_time > 19 || current_time < 6)
-    // If time is after 7PM or before 6AM, apply night theme to ‘body’
-    document.body.className = "night";
-  // Else use ‘day’ theme
-  else document.body.className = "";
-});
+  // 4. Toggle between Day and Night Mode
+  if (themeSwitch) {
+    themeSwitch.addEventListener("click", () => {
+      document.body.classList.toggle("night");
+    });
+  }
 
-$(window).load(function () {
-  $("#top-button").hide();
-});
+  // 5. Apply dark theme if user visits after 7pm or before 6am
+  const currentHour = new Date().getHours();
+  if (currentHour > 19 || currentHour < 6) {
+    document.body.classList.add("night");
+  } else {
+    document.body.classList.remove("night");
+  }
 
-// hover effect on languages/tools used in projects
-$(".project_used span").on({
-  mouseover: function () {
-    event.preventDefault();
-    $(this).animate({ opacity: 0.25 });
-  },
-  mouseout: function () {
-    event.preventDefault();
-    $(this).animate({ opacity: 1 });
-  },
+  // 6. Hover effect on languages/tools (Handled via JS, but CSS is better!)
+  const projectTags = document.querySelectorAll(".project_used span");
+  projectTags.forEach(tag => {
+    tag.addEventListener("mouseover", (event) => {
+      event.preventDefault(); // Event is now properly passed
+      tag.style.opacity = "0.25";
+      tag.style.transition = "opacity 0.3s ease"; // Adds the smooth animation
+    });
+    tag.addEventListener("mouseout", (event) => {
+      event.preventDefault();
+      tag.style.opacity = "1";
+    });
+  });
 });
