@@ -108,37 +108,50 @@ input:checked + .slider:before { transform: translateX(26px); }
 
 /* Skills Grid */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-.skill-card { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-.skill-card h3 { color: var(--accent-color); margin-bottom: 1rem; font-size: 1.1rem; }
-.skill-card ul { list-style: square; padding-left: 1.2rem; font-size: 0.9rem; }
+.skill-card { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; }
+.skill-card:hover { transform: translateY(-5px); }
+.skill-card h3 { color: var(--accent-color); margin-bottom: 1rem; font-size: 1.1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;}
+.night .skill-card h3 { border-bottom: 1px solid #333; }
+.skill-card ul { list-style: none; font-size: 0.9rem; }
+.skill-card ul li { margin-bottom: 0.5rem; }
+.skill-card ul li::before { content: "▹ "; color: var(--accent-color); }
 
-/* Projects & Details */
-.project-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-.project-img { width: 100%; height: auto; display: block; transition: transform 0.3s; }
-.project-card a:hover .project-img { transform: scale(1.02); }
+/* Projects Grid & Details */
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem; }
+.project-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.3s; }
+.project-card:hover { transform: translateY(-5px); }
 .custom-details { padding: 1.5rem; }
-.custom-details summary { font-weight: 600; cursor: pointer; font-size: 1.1rem; color: var(--accent-color); margin-bottom: 1rem; }
+.custom-details summary { font-weight: 600; font-size: 1.1rem; color: var(--accent-color); margin-bottom: 1rem; list-style: none; }
+.custom-details p { margin-bottom: 1.5rem; font-size: 0.95rem; }
 .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
-.tags span { background: var(--bg-color); border: 1px solid var(--accent-color); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; font-family: var(--font-mono); }
+.tags span { background: var(--bg-color); border: 1px solid var(--accent-color); padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-family: var(--font-mono); }
 
 /* Contacts Grid */
 .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center; }
-.contact-card { background: var(--card-bg); padding: 2rem 1rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.contact-card { background: var(--card-bg); padding: 2rem 1rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s;}
+.contact-card:hover { transform: translateY(-5px); }
 .contact-card i { font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem; }
 .contact-card a { color: var(--text-color); text-decoration: none; }
 
 /* Footer */
 .footer { text-align: center; padding: 2rem; border-top: 1px solid #ccc; margin-top: 3rem; }
+.night .footer { border-top: 1px solid #333; }
 .social-links { margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem; }
 .social-links a { color: var(--text-color); font-size: 1.5rem; transition: color 0.3s; }
-.social-links a:hover { color: var(--accent-color); }
+.social-links a:hover { color: var(--accent-color); transform: scale(1.1); display: inline-block;}
 
 /* Top Button */
 #top-button {
   position: fixed; bottom: 30px; right: 30px;
   background: var(--card-bg); border: 2px solid var(--accent-color);
-  font-size: 1.5rem; padding: 10px; border-radius: 50%;
+  font-size: 1.5rem; padding: 10px 15px; border-radius: 50%;
   cursor: pointer; display: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+  transition: transform 0.3s; z-index: 1000;
 }
 #top-button:hover { transform: scale(1.1); }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .project-grid { grid-template-columns: 1fr; }
+  .intro_hello { font-size: 2.5rem; }
+}
