@@ -155,3 +155,21 @@ input:checked + .slider:before { transform: translateX(26px); }
   .project-grid { grid-template-columns: 1fr; }
   .intro_hello { font-size: 2.5rem; }
 }
+
+/* --- Animated Colorful Highlight Text --- */
+.colorful-text {
+  background: linear-gradient(270deg, #ff007a, #7928ca, var(--accent-color), #4cc9f0);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 1.05em;
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
