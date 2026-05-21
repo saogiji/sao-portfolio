@@ -173,3 +173,112 @@ input:checked + .slider:before { transform: translateX(26px); }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* --- Clickable Card & Modal Styles --- */
+.clickable-card {
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.clickable-card:hover {
+  border: 1px solid var(--accent-color);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.15);
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 2000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0,0,0,0.7); 
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  margin: 5% auto; 
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 90%; 
+  max-width: 800px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.close-modal {
+  color: var(--text-color);
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-modal:hover { color: var(--accent-color); }
+
+/* Modal Inner Typography */
+.report-header h2 {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  font-family: var(--font-mono);
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+}
+.night .report-header h2 { border-bottom: 1px solid #333; }
+
+.report-body h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+.report-body h4 {
+  margin-top: 1.5rem;
+  color: var(--accent-color);
+}
+.report-body p, .report-body li {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+.hurdle {
+  background: var(--bg-color);
+  padding: 1rem 1.5rem;
+  border-left: 4px solid var(--accent-color);
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 1.5rem;
+}
+
+/* Code Blocks */
+pre {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+/* Data Table */
+.table-responsive { overflow-x: auto; margin-bottom: 2rem; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  background: var(--bg-color);
+}
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.night th, .night td { border-bottom: 1px solid #333; }
+th { background-color: var(--accent-color); color: #fff; font-weight: 600; }
