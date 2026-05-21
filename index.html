@@ -131,6 +131,22 @@
             </div>
           </div>
         </div>
+
+        <div class="project-card clickable-card" id="open-trading-report">
+          <div class="custom-details">
+            <summary>Algorithmic Trading Pipeline <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8em; margin-left: 5px;"></i></summary>
+            <div class="details-content">
+              <p>Architected a fully automated, decentralized execution environment connecting TradingView logic directly to the Bybit V5 API, bypassing geofences and handling cryptographic payloads.</p>
+              <div class="tags">
+                <span>PYTHON / FLASK</span>
+                <span>GOOGLE APPS SCRIPT</span>
+                <span>BYBIT API</span>
+                <span>SYSTEMS ENGINEERING</span>
+              </div>
+              <p style="margin-top: 1rem; font-size: 0.85rem; font-weight: 600; color: var(--accent-color);">Click to read the full case study.</p>
+            </div>
+          </div>
+        </div>
         
         <div class="project-card">
           <div class="custom-details">
@@ -157,20 +173,6 @@
                 <span>PROJECT MANAGEMENT</span>
                 <span>LOGISTICS</span>
                 <span>OPERATIONAL SCALING</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="custom-details">
-            <summary>Automated Data Extraction & Analytics</summary>
-            <div class="details-content">
-              <p>Developed custom Google Apps Script pipelines to extract, organize, and build predictive analytical models for daily sports fixtures (NBA).</p>
-              <div class="tags">
-                <span>GOOGLE APPS SCRIPT</span>
-                <span>DATA MODELING</span>
-                <span>API INTEGRATION</span>
               </div>
             </div>
           </div>
@@ -210,6 +212,152 @@
     </section>
   </div>
 
+  <div id="trading-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      
+      <div class="report-header">
+        <h2>Case Study: Architecting a Geofence-Resistant Algorithmic Trading Pipeline</h2>
+      </div>
+
+      <div class="report-body">
+        <h3>Executive Summary</h3>
+        <p>Developing a profitable algorithmic strategy is only half the battle; deploying it requires bulletproof infrastructure. This project details the end-to-end engineering of a fully automated, geofence-resistant trading pipeline. By leveraging advanced Large Language Models as an engineering co-pilot, I bypassed standard retail automation platforms to build a custom, decentralized execution environment connecting TradingView logic directly to the Bybit V5 API.</p>
+
+        <h3>1. The Strategic Edge (Why Automate?)</h3>
+        <p>Before engineering the infrastructure, the strategy itself underwent rigorous quantitative backtesting to ensure it possessed a mathematical edge worth automating.</p>
+        <ul>
+          <li><strong>The Profile:</strong> Like many institutional trend strategies, the win rate is naturally below 50% (historically ~42.7%). However, it is deeply profitable because it enforces an asymmetrical risk-to-reward ratio, yielding a Profit Factor of 1.63 (making $1.63 for every $1.00 lost).</li>
+          <li><strong>Capital Preservation:</strong> The primary catalyst for automation was its strict risk management. Across an 18-month test period, the maximum historical equity drawdown was capped at just 15.54%.</li>
+          <li><strong>Capital Scaling:</strong> The system was stress-tested and validated using a $1,000 risk model baseline. However, the fractional order-sizing logic allows it to scale dynamically to any capital size. In production, the live engine is currently executing on a highly efficient $100 margin base with 10x leverage.</li>
+        </ul>
+
+        <h3>2. The System Architecture</h3>
+        <p>The pipeline was designed to be low-latency, modular, and resilient. It consists of three core decentralized nodes:</p>
+        <ul>
+          <li><strong>The Brain (TradingView):</strong> A custom Pine Script strategy executing on a 1-hour timeframe. Upon candle close, it fires a highly specific JSON webhook payload containing market position, execution price, and order size.</li>
+          <li><strong>The Execution Engine (Python/Flask Node):</strong> A dedicated intermediary server that catches the JSON, cryptographically signs the payload natively using HMAC SHA-256, and executes the trade via Bybit’s V5 API.</li>
+          <li><strong>The Ledger (Google Apps Script):</strong> A cloud-based database that parses the intended TradingView action alongside the raw Bybit execution receipt, aligning them into a synchronized 13-column performance dashboard.</li>
+        </ul>
+
+        <h3>3. Engineering Hurdles & Solutions</h3>
+        <div class="hurdle">
+          <h4>Hurdle 1: The CloudFront Geoblock</h4>
+          <p>TradingView's webhook servers are US-based. Bybit's Amazon CloudFront firewall enforces strict geofences against US API requests, resulting in immediate 403 Forbidden rejections. <strong>Solution:</strong> The logic was translated into a Flask Python application and deployed to a specific Frankfurt, Germany datacenter, successfully bypassing the blockade.</p>
+        </div>
+        <div class="hurdle">
+          <h4>Hurdle 2: The "Cold Start" Timeout</h4>
+          <p>TradingView enforces a strict 3.0-second timeout. Because the strategy operates on a 1-hour timeframe, the server required 5–8 seconds to boot up from sleep, causing connection severing. <strong>Solution:</strong> Implemented a continuous 5-minute HTTP heartbeat monitor to prevent server hibernation, ensuring sub-second responses.</p>
+        </div>
+        <div class="hurdle">
+          <h4>Hurdle 3: The Ghost Town Effect (Exchange-Level Safeguards)</h4>
+          <p>Initial test deployments resulted in heavily fractured partial fills due to Bybit's "Price Protection Band" and IOC (Immediate-Or-Cancel) algorithmic safeguards in a low-liquidity testnet.</p>
+        </div>
+
+        <h4>Sample Diagnostic Ledger Data (Testnet Environment):</h4>
+        <p><em><a href="https://docs.google.com/spreadsheets/d/1hVqm70c-zyEnS_6_OXQFzuF5F2-32WhwS34OWoMw-Ng/edit?usp=sharing" target="_blank" class="underline-link" style="font-weight:bold;">🔗 Click here to view the live original data sheet</a></em></p>
+        <div class="table-responsive">
+          <table>
+            <tr>
+              <th>Date & Time (UTC)</th>
+              <th>Ticker</th>
+              <th>Action</th>
+              <th>Position</th>
+              <th>Exec Price</th>
+              <th>Size</th>
+              <th>Bybit Status</th>
+            </tr>
+            <tr>
+              <td>2026-05-08T16:30:00Z</td>
+              <td>BTCUSDT</td>
+              <td>SELL</td>
+              <td>SHORT</td>
+              <td>79913.8</td>
+              <td>0.009</td>
+              <td>OK</td>
+            </tr>
+            <tr>
+              <td>2026-05-10T22:27:40Z</td>
+              <td>BTCUSDT</td>
+              <td>BUY</td>
+              <td>FLAT</td>
+              <td>81673.1</td>
+              <td>0.000</td>
+              <td>position is zero</td>
+            </tr>
+            <tr>
+              <td>2026-05-11T02:00:00Z</td>
+              <td>BTCUSDT</td>
+              <td>SELL</td>
+              <td>SHORT</td>
+              <td>81463.3</td>
+              <td>0.009</td>
+              <td>OK</td>
+            </tr>
+          </table>
+        </div>
+
+        <h3>4. Core Infrastructure Code</h3>
+        <h4>The Cryptographic Execution Node (Python/Flask)</h4>
+        <pre><code>import time
+import hmac
+import hashlib
+import json
+import requests
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/', methods=['POST', 'GET'])
+def webhook():
+    if request.method == 'GET':
+        return "European Node Active", 200 # Heartbeat response
+        
+    data = request.get_json(force=True)
+    if data.get('passphrase') != 'SECURE_PASSPHRASE':
+        return "Unauthorized", 401
+
+    # Formatting and API Credentials omitted for brevity...
+
+    # Cryptographic Signature
+    payload_string = json.dumps(req_body, separators=(',', ':'))
+    sign_payload = timestamp + api_key + recv_window + payload_string
+    signature = hmac.new(
+        bytes(api_secret, "utf-8"),
+        bytes(sign_payload, "utf-8"),
+        hashlib.sha256
+    ).hexdigest()</code></pre>
+
+        <h4>The Automated Ledger (Google Apps Script)</h4>
+        <pre><code>function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Trades");
+  var data = JSON.parse(e.postData.contents);
+
+  var bybitStatus = "Unknown";
+  var bybitOrderId = "N/A";
+
+  // Silently parse the Bybit JSON receipt
+  if (data.bybit_log) {
+    try {
+      var logParsed = typeof data.bybit_log === 'string' ? JSON.parse(data.bybit_log) : data.bybit_log;
+      if (logParsed.retMsg) bybitStatus = logParsed.retMsg; 
+    } catch(err) {
+      bybitStatus = "Error parsing log";
+    }
+  }
+
+  if (sheet) {
+    sheet.appendRow([data.time, data.ticker, data.action, data.market_position, data.execution_price, bybitStatus]);
+  }
+  return ContentService.createTextOutput("Success");
+}</code></pre>
+
+        <h3>Conclusion</h3>
+        <p>By methodically diagnosing network topologies, cryptographic signing requirements, and order-book mechanics, a brittle webhook integration was transformed into a robust, institutional-grade algorithmic execution engine. The system now operates entirely hands-off, providing high-fidelity execution and automated PnL tracking capable of scaling dynamically across any capital size.</p>
+      </div>
+    </div>
+  </div>
+  
   <footer class="footer">
     <p>Designed &amp; Developed by Simon Adanu Ogiji (saogiji) 🤘</p>
     <div class="social-links">
