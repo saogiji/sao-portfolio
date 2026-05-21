@@ -36,4 +36,32 @@ document.addEventListener("DOMContentLoaded", () => {
       behavior: "smooth"
     });
   });
+
+// --- Modal Logic for Trading Report ---
+  const modal = document.getElementById("trading-modal");
+  const reportBtn = document.getElementById("open-trading-report");
+  const closeBtn = document.querySelector(".close-modal");
+
+  if (reportBtn && modal && closeBtn) {
+    // Open modal and prevent body from scrolling
+    reportBtn.addEventListener("click", () => {
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden";
+    });
+
+    // Close modal on X click
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    });
+
+    // Close modal on outside background click
+    window.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    });
+  }
+  
 });
